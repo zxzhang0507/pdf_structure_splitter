@@ -1,0 +1,40 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- PyInstaller 构建产物 ----
+# exe 体积很大（约 75 MB），且每次重建都不同；不进版本库。
+# 发布时把 exe 作为 GitHub Release 的附件。
+build/
+dist/
+*.manifest
+
+# ---- 测试与运行产物 ----
+# 测试用 PDF 由使用者自备，不入库
+test.pdf
+tests/_export_out/
+tests/_tgt/
+tests/_geo_probe.pdf
+selftest_result.txt
+_selftest_out/
+
+# 运行程序时的默认输出（用户自己的 PDF 与导出结果）
+*_color.pdf
+*_bw.pdf
+*_report.csv
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+*.swp
+*~
+Thumbs.db
+desktop.ini
+
+# ---- 注意 ----
+# 本项目**不附带任何测试用 PDF**：需要 PDF 的测试由使用者自备
+# （见 tests/fixture.py）。上面的 test.pdf 已忽略，避免误提交。
