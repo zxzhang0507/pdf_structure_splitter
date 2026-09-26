@@ -382,12 +382,18 @@ SECTIONS: list[tuple[str, str, str]] = [
         "关于",
         f"""
         <h2>pdf_structure_splitter 图形界面版</h2>
-        <p>版本 {GUI_VERSION}</p>
         <p>把 PDF 按双面打印纸为单位拆成彩色件与黑白件，
         供彩色 / 黑白打印机分别打印。</p>
 
+        <h2>项目主页</h2>
+        <p>源码、问题反馈与更新都在 GitHub：</p>
+        <p><a href="https://github.com/zxzhang0507/pdf_structure_splitter">
+        https://github.com/zxzhang0507/pdf_structure_splitter</a></p>
+        <p class="note">本项目采用 Apache License 2.0 许可。</p>
+
         <h2>技术信息</h2>
         <table cellpadding="6">
+          <tr><td>版本</td><td>{GUI_VERSION}</td></tr>
           <tr><td>界面框架</td><td>PySide6（Qt 6）</td></tr>
           <tr><td>PDF 引擎</td><td>PyMuPDF</td></tr>
           <tr><td>颜色统计</td><td>NumPy</td></tr>
@@ -458,7 +464,9 @@ class HelpDialog(QDialog):
         """把一段 HTML 包成可滚动的页面。"""
         browser = QTextBrowser()
         browser.setObjectName("HelpBody")
-        browser.setOpenExternalLinks(False)
+        # 允许点击链接用系统默认浏览器打开（「关于」里有项目主页）。
+        # 帮助页正文里除了项目地址没有别的链接，因此不需要额外过滤域名。
+        browser.setOpenExternalLinks(True)
         browser.setFrameShape(QTextBrowser.NoFrame)
         browser.setHtml(_wrap_html(html))
         page = QWidget()
@@ -482,6 +490,7 @@ def _wrap_html(body: str) -> str:
       ul {{ margin: 6px 0 6px 18px; }}
       li {{ margin: 3px 0; }}
       code {{ background: #F3F4F6; color: #1D4ED8; padding: 1px 4px; }}
+      a {{ color: #2563EB; text-decoration: underline; }}
       table {{ border-collapse: collapse; margin: 6px 0; }}
       td {{ border-bottom: 1px solid #E5E7EB; vertical-align: top; }}
       .note {{ color: #6B7280; background: #F9FAFB;
