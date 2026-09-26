@@ -1,4 +1,11 @@
-# ---- Python ----
+# ============ 本地文档（不入库） ============
+# 使用说明.md 是 tests/help_to_md.py 从程序内帮助页导出的副本，
+# 随时可重新生成；DEVELOPMENT.md 是本地开发笔记。
+# 仓库里只保留 README.md。
+使用说明.md
+DEVELOPMENT.md
+
+# ============ Python ============
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -6,15 +13,16 @@ __pycache__/
 venv/
 env/
 
-# ---- PyInstaller 构建产物 ----
-# exe 体积很大（约 75 MB），且每次重建都不同；不进版本库。
-# 发布时把 exe 作为 GitHub Release 的附件。
+# ============ 构建产物 ============
+# exe 约 75 MB 且每次重建都不同，不进版本库；
+# 发布时作为 GitHub Release 的附件上传（见 build.bat）。
 build/
 dist/
 *.manifest
 
-# ---- 测试与运行产物 ----
-# 测试用 PDF 由使用者自备，不入库
+# ============ 测试产物 ============
+# 测试用的 PDF 由使用者自备（见 tests/fixture.py），不入库。
+# 下面按常见命名兜底，避免误提交自己的文档。
 test.pdf
 tests/_export_out/
 tests/_tgt/
@@ -22,19 +30,15 @@ tests/_geo_probe.pdf
 selftest_result.txt
 _selftest_out/
 
-# 运行程序时的默认输出（用户自己的 PDF 与导出结果）
+# ============ 程序输出 ============
 *_color.pdf
 *_bw.pdf
 *_report.csv
 
-# ---- 编辑器 / 系统 ----
+# ============ 编辑器 / 系统 ============
 .vscode/
 .idea/
 *.swp
 *~
 Thumbs.db
 desktop.ini
-
-# ---- 注意 ----
-# 本项目**不附带任何测试用 PDF**：需要 PDF 的测试由使用者自备
-# （见 tests/fixture.py）。上面的 test.pdf 已忽略，避免误提交。
